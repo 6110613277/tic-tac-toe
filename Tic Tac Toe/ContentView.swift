@@ -46,7 +46,7 @@ struct ContentView: View {
                         firstPlayer.toggle()
                         alertItem = AlertContext.draw
                         return
-                        }
+                    }
                         
                         isGameboardDisabled.toggle()
                     
@@ -59,6 +59,12 @@ struct ContentView: View {
                             if checkWinConditon(for: .computer, in: moves){
                                 firstPlayer.toggle()
                                 alertItem = AlertContext.computerWin
+                            }
+                            
+                            if checkForDraw(in: moves){
+                                firstPlayer.toggle()
+                                alertItem = AlertContext.draw
+                                return
                             }
                         }
                     }
